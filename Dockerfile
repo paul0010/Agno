@@ -12,7 +12,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 COPY ./requirements.txt /code/requirements.txt
 
 # Install dependencies
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+# First upgrade pip and install google-genai explicitly to avoid dependency conflicts
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir google-genai && \
+    pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # Copy application code
 COPY ./agno_agent.py /code/agno_agent.py
