@@ -8,7 +8,8 @@ uvicorn[standard]>=0.32.0
 # Environment management
 python-dotenv>=1.0.0
 
-# Model providers
+# Model providers - Google Gemini
+google-genai>=0.2.0
 google-generativeai>=0.8.0
 
 # Tools and integrations
